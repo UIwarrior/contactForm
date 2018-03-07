@@ -1,0 +1,53 @@
+<div class="row">
+<div class="col-sm-3 col-md-2 sidebar" style="background-color:brown">
+  <ul class="nav nav-sidebar">
+            <li><a href="#">Dashboard</a></li>
+            <li class="active"><a href="#">Contacts</a></li>
+  </ul>
+</div>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h1>Contact List</h1>
+  <div class="row">
+   <div class="col-md-6 col-xs-12">
+    <b>Quick Find Contacts</b> <input type="text" placeholder="Type Here" ng-model="searchtext"/>
+   </div>
+   <div class="col-md-4"><a class="btn btn-primary" ng-click="">Add Contact</a></div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email Address</th>
+      <th>Contact No</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="user in vm.userArr | filter:searchtext track by $index">
+        <td>{{$index}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email.work}}</td>
+        <td>{{user.contactNo.personal}}</td>
+      </tr>
+    </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li>
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">Previous</span>
+        </a>
+      </li>
+      <li ng-repeat="page in vm.pageArray"><a href="#">{{page}}</a></li>
+      <li>
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  </div>
+</div>
+
+</div>
